@@ -28,7 +28,7 @@ jobs:
     - name: Test
       run: dotnet test --verbosity normal
     - name: Publish
-      run: dotnet publish FireflySR.Tool.Proxy.csproj -c Release -r ${{ matrix.runtime-id }}
+      run: dotnet publish Danheng.Proxy.csproj -c Release -r ${{ matrix.runtime-id }}
     - name: Remove .pdb debug symbols
       run: |
         rm bin/Release/net8.0/${{ matrix.runtime-id }}/publish/*.pdb
@@ -36,5 +36,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: FireflySR.Tool.Proxy_${{ matrix.runtime-id }}
+        name: Danheng.Proxy_${{ matrix.runtime-id }}
         path: bin/Release/net8.0/${{ matrix.runtime-id }}/publish
